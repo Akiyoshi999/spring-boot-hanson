@@ -1,0 +1,11 @@
+services:
+  spring-app:
+    build:
+      context: ./docker/java
+    ports:
+      - "8080:8080"
+    tty: true
+    volumes:
+      - ./:/app
+    working_dir: /app
+    # command: /app/gradlew bootRun
