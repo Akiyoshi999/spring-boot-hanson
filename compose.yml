@@ -1,11 +1,20 @@
 services:
-  spring-app:
-    build:
-      context: ./docker/java
+  #   spring-app:
+  #     build:
+  #       context: ./docker/java
+  #     ports:
+  #       - "8080:8080"
+  #     tty: true
+  #     volumes:
+  #       - ./:/app
+  #     working_dir: /app
+  # command: /app/gradlew bootRun
+  mysql:
+    image: "mysql:latest"
+    environment:
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_USER=${MYSQL_USER}
     ports:
-      - "8080:8080"
-    tty: true
-    volumes:
-      - ./:/app
-    working_dir: /app
-    # command: /app/gradlew bootRun
+      - "3306"
